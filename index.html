@@ -3,41 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Groundworks & Labour Supply</title>
+<title>Dig It Up Ground Works SW Ltd</title>
 
 <style>
 body {
   margin:0;
   font-family: 'Segoe UI', sans-serif;
-  background:#0f0f0f;
-  color:#eaeaea;
+  background:#0f1720;
+  color:#e5e7eb;
 }
 
 /* NAV */
 nav {
   position:fixed;
   width:100%;
-  padding:20px 8%;
+  padding:15px 8%;
   display:flex;
   justify-content:space-between;
-  background:rgba(0,0,0,0.6);
-  backdrop-filter: blur(10px);
+  align-items:center;
+  background:rgba(15,23,32,0.85);
+  backdrop-filter: blur(8px);
   z-index:1000;
 }
 
-nav h1 { font-size:18px; }
+.logo {
+  height:40px;
+}
 
 /* HERO */
 .hero {
   height:100vh;
   position:relative;
-  overflow:hidden;
-}
-
-.slides {
-  position:absolute;
-  width:100%;
-  height:100%;
 }
 
 .slide {
@@ -47,10 +43,17 @@ nav h1 { font-size:18px; }
   background-size:cover;
   background-position:center;
   opacity:0;
-  transition:opacity 1s ease;
+  transition:1s;
 }
 
 .slide.active { opacity:1; }
+
+.overlay {
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.2));
+}
 
 .hero-content {
   position:relative;
@@ -60,27 +63,36 @@ nav h1 { font-size:18px; }
   flex-direction:column;
   justify-content:center;
   padding:0 8%;
-  max-width:600px;
+  max-width:650px;
 }
 
 .hero h2 {
-  font-size:48px;
-  margin-bottom:15px;
+  font-size:50px;
 }
 
+.hero p {
+  margin:15px 0;
+  color:#cbd5e1;
+}
+
+/* BUTTON */
 .btn {
-  background:#fff;
+  background:#22c55e;
   color:#000;
-  padding:12px 24px;
+  padding:12px 26px;
   border:none;
   cursor:pointer;
   font-weight:bold;
-  width:fit-content;
+  border-radius:5px;
 }
 
 /* SECTIONS */
 section {
-  padding:80px 8%;
+  padding:90px 8%;
+}
+
+h2 {
+  margin-bottom:20px;
 }
 
 .grid {
@@ -90,88 +102,88 @@ section {
 }
 
 .card {
-  background:#1a1a1a;
+  background:#1e293b;
   padding:20px;
-  border-radius:8px;
-  transition:0.3s;
-}
-
-.card:hover {
-  transform:translateY(-5px);
-  background:#222;
-}
-
-/* MODAL */
-.modal {
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.8);
-  display:none;
-  justify-content:center;
-  align-items:center;
-}
-
-.modal-content {
-  background:#111;
-  padding:30px;
-  width:90%;
-  max-width:500px;
   border-radius:10px;
+  border-left:4px solid #22c55e;
 }
 
-.modal input, .modal textarea {
+/* QUOTE SECTION */
+.quote-section {
+  background:#111827;
+  text-align:center;
+}
+
+.quote-box {
+  max-width:500px;
+  margin:auto;
+}
+
+input, textarea {
   width:100%;
+  padding:12px;
   margin:10px 0;
-  padding:10px;
-  background:#222;
+  background:#1e293b;
   border:none;
   color:#fff;
 }
 
+/* FOOTER */
 footer {
+  background:#020617;
   text-align:center;
   padding:40px;
-  background:#000;
 }
 
-a { color:#aaa; }
+a { color:#22c55e; }
 </style>
 </head>
 
 <body>
 
 <nav>
-  <h1>Groundworks & Plant Services</h1>
+  <!-- REPLACE THIS WITH ACTUAL LOGO -->
+  <img src="logo.png" class="logo">
 </nav>
 
 <!-- HERO -->
 <div class="hero">
-  <div class="slides">
-    <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e')"></div>
-    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1581091870627-3b1fcb7f3b3f')"></div>
-    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1597002974507-6c3b4b47a1b5')"></div>
-  </div>
+  <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e')"></div>
+  <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1581091870627-3b1fcb7f3b3f')"></div>
+  <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1597002974507-6c3b4b47a1b5')"></div>
+
+  <div class="overlay"></div>
 
   <div class="hero-content">
-    <h2>Groundworks & Labour Supply</h2>
-    <p>Based in Essex, covering Suffolk & surrounding areas.</p>
-    <button class="btn" onclick="openModal()">Get a Quote</button>
+    <h2>Dig It Up Ground Works SW Ltd</h2>
+    <p>
+      Professional groundwork and labour supply specialists based in Essex, covering Suffolk and surrounding areas.
+      Delivering reliable, high-quality services for small to medium-sized construction projects.
+    </p>
   </div>
 </div>
+
+<!-- ABOUT -->
+<section>
+<h2>About Us</h2>
+<p>
+At Dig It Up Ground Works SW Ltd, we provide a complete range of groundwork services, from initial site preparation through to finished levels.
+With hands-on experience across residential and commercial projects, we pride ourselves on delivering efficient, reliable, and high-standard work.
+</p>
+</section>
 
 <!-- SERVICES -->
 <section>
 <h2>Groundwork Services</h2>
 <div class="grid">
-<div class="card">Footings & Foundations</div>
-<div class="card">Drainage & Septic Tanks</div>
-<div class="card">Driveways & Landscaping</div>
-<div class="card">Site Clearance</div>
-<div class="card">Pond & Pool Dig Outs</div>
-<div class="card">Roads & Hardstanding</div>
+<div class="card">Footings & Foundations for Extensions</div>
+<div class="card">Drainage Systems & Septic Tank Installation</div>
+<div class="card">Driveways, Hard Landscaping & External Works</div>
+<div class="card">Site Clearance & Small Demolition</div>
+<div class="card">Tree Stump Removal & Ditching Works</div>
+<div class="card">Pond & Swimming Pool Dig Outs</div>
+<div class="card">Retaining Walls & Structural Groundworks</div>
+<div class="card">Roads, Tracks & Hardstanding Areas</div>
 </div>
 </section>
 
@@ -179,73 +191,50 @@ a { color:#aaa; }
 <section>
 <h2>Labour Supply</h2>
 <p>
-We supply reliable, fully qualified labour to construction and infrastructure projects.
-All operatives are vetted and hold relevant CSCS/CPCS tickets.
+We supply experienced and fully qualified labour to construction and infrastructure projects, supporting contractors with reliable workforce solutions.
+All operatives are vetted and hold the relevant CSCS/CPCS certifications required for site work.
 </p>
 
 <div class="grid">
 <div class="card">Groundwork Gangs</div>
+<div class="card">Roads & Sewers Gangs</div>
 <div class="card">Machine Drivers</div>
 <div class="card">Dumper Drivers</div>
-<div class="card">Labourers</div>
+<div class="card">General Labourers</div>
 </div>
 </section>
 
-<!-- MODAL FORM -->
-<div class="modal" id="quoteModal">
-  <div class="modal-content">
-    <h3>Request a Quote</h3>
-    <input type="text" placeholder="Name" id="name">
-    <input type="email" placeholder="Email" id="email">
-    <input type="text" placeholder="Phone">
-    <textarea placeholder="Project details"></textarea>
-    <button class="btn" onclick="submitForm()">Send Request</button>
-    <button onclick="closeModal()">Close</button>
-  </div>
+<!-- QUOTE -->
+<section class="quote-section">
+<h2>Request a Quote</h2>
+<div class="quote-box">
+<input type="text" placeholder="Full Name">
+<input type="email" placeholder="Email Address">
+<input type="text" placeholder="Phone Number">
+<textarea placeholder="Tell us about your project"></textarea>
+<button class="btn">Submit Request</button>
 </div>
+</section>
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 Groundworks</p>
-  <p>
-    <a href="https://www.facebook.com/share/1bkVrC9YfD/" target="_blank">Facebook</a> |
-    <a href="https://www.linkedin.com/in/wayne-chambers-721648169" target="_blank">LinkedIn</a>
-  </p>
+<p>© 2026 Dig It Up Ground Works SW Ltd</p>
+<p>
+<a href="https://www.facebook.com/share/1bkVrC9YfD/" target="_blank">Facebook</a> |
+<a href="https://www.linkedin.com/in/wayne-chambers-721648169" target="_blank">LinkedIn</a>
+</p>
+<p>Based in Essex | Covering Suffolk & surrounding areas</p>
 </footer>
 
 <script>
-// SLIDESHOW
 let slides = document.querySelectorAll('.slide');
-let index = 0;
+let i = 0;
 
 setInterval(() => {
-  slides[index].classList.remove('active');
-  index = (index + 1) % slides.length;
-  slides[index].classList.add('active');
+  slides[i].classList.remove('active');
+  i = (i + 1) % slides.length;
+  slides[i].classList.add('active');
 }, 4000);
-
-// MODAL
-function openModal() {
-  document.getElementById('quoteModal').style.display = 'flex';
-}
-
-function closeModal() {
-  document.getElementById('quoteModal').style.display = 'none';
-}
-
-// FORM (placeholder logic)
-function submitForm() {
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-
-  if (!name || !email) {
-    alert("Please fill in required fields");
-    return;
-  }
-
-  alert("Quote request submitted (connect backend next)");
-  closeModal();
-}
 </script>
 
 </body>
