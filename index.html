@@ -1,390 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dig It Up Groundworks</title>
+  <meta charset="UTF-8">
+  <title>Groundworks & Labour Supply</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
 
-<style>
+    body {
+      line-height: 1.6;
+      color: #333;
+    }
 
-/* GLOBAL */
-:root{
---orange:#ff8c00;
---dark:#0b0b0b;
---grey:#1a1a1a;
-}
+    /* NAV */
+    nav {
+      position: fixed;
+      width: 100%;
+      background: rgba(0,0,0,0.7);
+      padding: 15px;
+      z-index: 1000;
+    }
 
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Inter',sans-serif;background:var(--dark);color:white;}
+    nav h1 {
+      color: #fff;
+    }
 
-/* NAV */
-nav{
-position:fixed;
-width:100%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 20px;
-background:rgba(0,0,0,0.9);
-z-index:1000;
-}
+    /* HERO SLIDER */
+    .hero {
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
 
-.logo{
-height:45px;
-}
+    .slides {
+      display: flex;
+      width: 300%;
+      height: 100%;
+      animation: slide 15s infinite;
+    }
 
-nav a{
-color:white;
-margin-left:20px;
-text-decoration:none;
-font-size:0.9rem;
-}
+    .slide {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+    }
 
-/* HERO */
-.hero{
-height:100vh;
-position:relative;
-overflow:hidden;
-}
+    .slide1 { background-image: url('https://images.unsplash.com/photo-1581091870627-3b1fcb7f3b3f'); }
+    .slide2 { background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e'); }
+    .slide3 { background-image: url('https://images.unsplash.com/photo-1597002974507-6c3b4b47a1b5'); }
 
-.hero-slide{
-position:absolute;
-width:100%;
-height:100%;
-background-size:cover;
-background-position:center;
-opacity:0;
-transition:1s;
-}
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      33% { transform: translateX(0); }
+      38% { transform: translateX(-100%); }
+      66% { transform: translateX(-100%); }
+      71% { transform: translateX(-200%); }
+      100% { transform: translateX(-200%); }
+    }
 
-.hero-slide.active{opacity:1;}
+    .hero-text {
+      position: absolute;
+      top: 50%;
+      left: 10%;
+      transform: translateY(-50%);
+      color: #fff;
+      max-width: 500px;
+    }
 
-.hero-overlay{
-position:absolute;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.6);
-}
+    .hero-text h2 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
 
-.hero-content{
-position:relative;
-z-index:2;
-height:100%;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:20px;
-}
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background: orange;
+      color: #000;
+      text-decoration: none;
+      margin-top: 10px;
+      font-weight: bold;
+    }
 
-.hero h1{
-font-family:'Oswald';
-font-size:2.5rem;
-max-width:800px;
-}
+    section {
+      padding: 60px 10%;
+    }
 
-.hero p{
-margin:15px 0;
-color:#ccc;
-}
+    h2 {
+      margin-bottom: 20px;
+    }
 
-.btn{
-background:var(--orange);
-color:black;
-padding:12px 25px;
-text-decoration:none;
-font-weight:bold;
-margin-top:10px;
-display:inline-block;
-}
+    .services, .labour {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
 
-/* SECTIONS */
-section{
-padding:70px 20px;
-max-width:1100px;
-margin:auto;
-}
+    .card {
+      padding: 20px;
+      background: #f4f4f4;
+      border-left: 5px solid orange;
+    }
 
-h2{
-font-family:'Oswald';
-margin-bottom:20px;
-}
+    footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 30px;
+    }
 
-/* SERVICES */
-.services{
-display:grid;
-gap:20px;
-}
-
-.service{
-background:var(--grey);
-padding:25px;
-border-left:4px solid var(--orange);
-}
-
-/* WORK SLIDER */
-.full-width{
-max-width:100%;
-padding:70px 0;
-}
-
-.slider{
-overflow:hidden;
-width:100%;
-}
-
-.slides{
-display:flex;
-transition:0.6s;
-}
-
-.slides img{
-width:100%;
-height:250px;
-object-fit:cover;
-}
-
-/* TRUST */
-.trust{
-background:#111;
-text-align:center;
-}
-
-.trust-grid{
-display:grid;
-gap:15px;
-}
-
-/* CTA */
-.cta{
-background:var(--orange);
-color:black;
-text-align:center;
-padding:50px 20px;
-}
-
-/* FORM */
-form{
-display:flex;
-flex-direction:column;
-max-width:500px;
-}
-
-input,textarea{
-padding:12px;
-margin-bottom:10px;
-border:none;
-}
-
-/* FOOTER */
-footer{
-background:black;
-text-align:center;
-padding:30px;
-}
-
-footer a{
-color:var(--orange);
-margin:0 10px;
-}
-
-/* DESKTOP */
-@media(min-width:768px){
-
-.hero h1{font-size:4rem;}
-
-.services{
-grid-template-columns:repeat(3,1fr);
-}
-
-.trust-grid{
-grid-template-columns:repeat(4,1fr);
-}
-
-.slides img{
-height:500px;
-}
-
-}
-
-</style>
+    footer a {
+      color: orange;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- NAV -->
 <nav>
-<img src="images/logo.png" class="logo">
-<div>
-<a href="#work">Work</a>
-<a href="#services">Services</a>
-<a href="#contact">Quote</a>
-</div>
+  <h1>Groundworks & Plant Services</h1>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
+<div class="hero">
+  <div class="slides">
+    <div class="slide slide1"></div>
+    <div class="slide slide2"></div>
+    <div class="slide slide3"></div>
+  </div>
 
-<div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e')"></div>
-<div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd')"></div>
-<div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1581092334440-1d6d7f76e8df')"></div>
-
-<div class="hero-overlay"></div>
-
-<div class="hero-content">
-<h1>Professional Groundworks & Excavation</h1>
-<p>Reliable solutions for domestic and commercial projects</p>
-<a href="#contact" class="btn">Get a Quote</a>
+  <div class="hero-text">
+    <h2>Professional Groundworks & Labour Supply</h2>
+    <p>Based in Essex, covering Suffolk and surrounding areas.</p>
+    <a href="#contact" class="btn">Get a Quote</a>
+  </div>
 </div>
-
-</section>
-
-<!-- ABOUT -->
-<section>
-<h2>Groundworks Done Right</h2>
-<p>
-We provide complete groundwork services including excavation, drainage,
-foundations and full site preparation. Every job is completed with precision,
-reliability and a focus on long-lasting results.
-</p>
-</section>
 
 <!-- SERVICES -->
-<section id="services">
-<h2>Our Services</h2>
-
-<div class="services">
-
-<div class="service">
-<h3>Site Clearance</h3>
-<p>Preparing land for construction with efficient removal of debris and obstacles.</p>
-</div>
-
-<div class="service">
-<h3>Excavation</h3>
-<p>Accurate digging for foundations, trenches and groundwork projects.</p>
-</div>
-
-<div class="service">
-<h3>Drainage</h3>
-<p>Installation of effective drainage systems to prevent water issues.</p>
-</div>
-
-<div class="service">
-<h3>Foundations</h3>
-<p>Strong, reliable base work built to specification.</p>
-</div>
-
-<div class="service">
-<h3>Digger Hire</h3>
-<p>Machinery with skilled operator available for all project sizes.</p>
-</div>
-
-<div class="service">
-<h3>Full Groundworks</h3>
-<p>Complete solutions from start to finish for any site.</p>
-</div>
-
-</div>
+<section>
+  <h2>Groundwork Services</h2>
+  <div class="services">
+    <div class="card">Footings & Foundations</div>
+    <div class="card">House Extensions (to floor level)</div>
+    <div class="card">Drainage & Septic Tanks</div>
+    <div class="card">Driveways & Hard Landscaping</div>
+    <div class="card">Pond & Pool Dig Outs</div>
+    <div class="card">Tree Stump Removal</div>
+    <div class="card">Ditching Works</div>
+    <div class="card">Retaining Walls</div>
+    <div class="card">Site Clearance & Demolition</div>
+    <div class="card">Roads, Tracks & Hardstanding</div>
+  </div>
 </section>
 
-<!-- WORK -->
-<section id="work" class="full-width">
-<h2 style="padding:0 20px;">Recent Projects</h2>
+<!-- LABOUR -->
+<section style="background:#eee;">
+  <h2>Labour Supply</h2>
+  <p>
+    We supply reliable, fully qualified labour to construction and infrastructure projects, helping keep work on schedule and to a high standard.
+    All operatives are vetted and hold the relevant CSCS/CPCS tickets required to work safely on site.
+  </p>
 
-<div class="slider">
-<div class="slides" id="slides">
-<img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e">
-<img src="https://images.unsplash.com/photo-1581092334440-1d6d7f76e8df">
-<img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd">
-</div>
-</div>
-
-</section>
-
-<!-- TRUST -->
-<section class="trust">
-<div class="trust-grid">
-<div>✔ Fully Insured</div>
-<div>✔ Reliable & Professional</div>
-<div>✔ Domestic & Commercial</div>
-<div>✔ Experienced Operators</div>
-</div>
-</section>
-
-<!-- CTA -->
-<section class="cta">
-<h2>Need Groundwork Done?</h2>
-<a href="#contact" class="btn">Request a Quote</a>
+  <div class="labour">
+    <div class="card">Groundwork Gangs</div>
+    <div class="card">Roads & Sewers Gangs</div>
+    <div class="card">Machine Drivers</div>
+    <div class="card">Dumper Drivers</div>
+    <div class="card">General Labourers</div>
+  </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-<h2>Get a Quote</h2>
-
-<form onsubmit="sendEmail(event)">
-<input type="text" id="name" placeholder="Name" required>
-<input type="email" id="email" placeholder="Email" required>
-<input type="tel" id="phone" placeholder="Phone">
-<textarea id="message" placeholder="Tell us about your project"></textarea>
-<button type="submit" class="btn">Send Request</button>
-</form>
-
+  <h2>Contact Us</h2>
+  <p>Get in touch today for a free quote.</p>
+  <p><strong>Phone:</strong> 07XXX XXX XXX</p>
+  <p><strong>Email:</strong> info@email.com</p>
 </section>
 
 <!-- FOOTER -->
 <footer>
-<p>07787300827</p>
-<p>Hello@digitupgroundworks.com</p>
-
-<div>
-<a href="https://www.facebook.com/share/1bkVrC9YfD/">Facebook</a>
-<a href="https://www.linkedin.com/in/wayne-chambers-721648169">LinkedIn</a>
-</div>
+  <p>© 2026 Groundworks Company</p>
+  <p>
+    <a href="https://www.facebook.com/share/1bkVrC9YfD/" target="_blank">Facebook</a> |
+    <a href="https://www.linkedin.com/in/wayne-chambers-721648169" target="_blank">LinkedIn</a>
+  </p>
+  <p>Essex-based | Covering Suffolk & surrounding areas</p>
 </footer>
-
-<script>
-
-/* HERO SLIDER */
-let heroSlides=document.querySelectorAll(".hero-slide");
-let i=0;
-setInterval(()=>{
-heroSlides[i].classList.remove("active");
-i=(i+1)%heroSlides.length;
-heroSlides[i].classList.add("active");
-},4000);
-
-/* WORK SLIDER */
-let slideIndex=0;
-let slides=document.getElementById("slides");
-let totalSlides=slides.children.length;
-
-setInterval(()=>{
-slideIndex++;
-if(slideIndex>=totalSlides) slideIndex=0;
-slides.style.transform=`translateX(-${slideIndex*100}%)`;
-},3500);
-
-/* EMAIL */
-function sendEmail(e){
-e.preventDefault();
-
-let name=document.getElementById("name").value;
-let email=document.getElementById("email").value;
-let phone=document.getElementById("phone").value;
-let message=document.getElementById("message").value;
-
-window.location.href=`mailto:Hello@digitupgroundworks.com?subject=Quote Request&body=
-Name: ${name}%0D%0A
-Email: ${email}%0D%0A
-Phone: ${phone}%0D%0A
-Message: ${message}`;
-}
-
-</script>
 
 </body>
 </html>
