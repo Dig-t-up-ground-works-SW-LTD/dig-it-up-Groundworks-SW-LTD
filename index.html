@@ -5,171 +5,191 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dig It Up Groundworks</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
+
+/* GLOBAL */
 :root {
-    --orange: #ff8c00;
-    --dark: #0d0d0d;
-    --light: #f5f5f5;
+    --orange:#ff8c00;
+    --dark:#0a0a0a;
+    --grey:#1a1a1a;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Inter', sans-serif;
-    background: var(--dark);
-    color: white;
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+    font-family:'Inter',sans-serif;
+    background:var(--dark);
+    color:white;
 }
 
 /* NAV */
-nav {
-    position: fixed;
-    width: 100%;
-    padding: 15px 20px;
-    background: rgba(0,0,0,0.85);
-    display: flex;
-    justify-content: space-between;
-    z-index: 1000;
+nav{
+    position:fixed;
+    width:100%;
+    padding:15px 20px;
+    display:flex;
+    justify-content:space-between;
+    background:rgba(0,0,0,0.85);
+    z-index:1000;
 }
-
-nav h2 {
-    font-family: 'Oswald';
-    letter-spacing: 1px;
-}
-
-nav a {
-    color: white;
-    margin-left: 15px;
-    text-decoration: none;
-    font-size: 0.9rem;
-}
+nav h2{font-family:'Oswald';}
+nav a{color:white;margin-left:15px;text-decoration:none;}
 
 /* HERO */
-.hero {
-    height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-    url('https://images.unsplash.com/photo-1597002973522-8aefc7f5c6e5') center/cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 20px;
+.hero{
+    height:100vh;
+    background:url('https://images.unsplash.com/photo-1597002973522-8aefc7f5c6e5') center/cover;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+.hero::after{
+    content:"";
+    position:absolute;
+    width:100%;height:100%;
+    background:linear-gradient(180deg,rgba(0,0,0,0.7),rgba(0,0,0,0.95));
+}
+.hero-content{
+    position:relative;
+    z-index:2;
+}
+.hero h1{
+    font-family:'Oswald';
+    font-size:3rem;
+}
+.hero p{margin:10px 0;color:#ccc;}
+.line{
+    width:80px;height:4px;
+    background:var(--orange);
+    margin:15px auto;
 }
 
-.hero h1 {
-    font-size: 2.5rem;
-    font-family: 'Oswald';
+/* BUTTONS */
+.btn{
+    display:inline-block;
+    padding:12px 25px;
+    background:var(--orange);
+    color:black;
+    font-weight:bold;
+    text-decoration:none;
+    margin:5px;
 }
-
-.hero p {
-    margin: 15px 0;
-    color: #ccc;
-}
-
-.btn {
-    background: var(--orange);
-    color: black;
-    padding: 12px 25px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
+.btn.secondary{
+    background:transparent;
+    border:2px solid var(--orange);
+    color:var(--orange);
 }
 
 /* SECTIONS */
-section {
-    padding: 60px 20px;
-    max-width: 1100px;
-    margin: auto;
+section{
+    padding:70px 20px;
+    max-width:1100px;
+    margin:auto;
 }
-
-h2 {
-    font-family: 'Oswald';
-    margin-bottom: 20px;
+h2{
+    font-family:'Oswald';
+    margin-bottom:25px;
 }
 
 /* SLIDER */
-.slider {
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
+.slider{
+    position:relative;
+    overflow:hidden;
+    border-radius:10px;
 }
-
-.slides {
-    display: flex;
-    transition: transform 0.5s ease;
+.slide{
+    position:absolute;
+    width:100%;
+    opacity:0;
+    transition:1s;
 }
-
-.slides img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
+.slide img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    transform:scale(1.1);
+}
+.slide.active{
+    opacity:1;
+    z-index:1;
+}
+.slide.active img{
+    transform:scale(1);
+    transition:4s;
 }
 
 /* SERVICES */
-.services {
-    display: grid;
-    gap: 20px;
+.services{
+    display:grid;
+    gap:20px;
+}
+.service{
+    background:var(--grey);
+    padding:20px;
+    border-left:4px solid var(--orange);
+    transition:0.3s;
+}
+.service:hover{
+    transform:translateY(-5px);
+    background:var(--orange);
+    color:black;
 }
 
-.service {
-    background: #1a1a1a;
-    padding: 20px;
-    border-radius: 10px;
-    transition: 0.3s;
+/* TRUST */
+.trust{
+    background:#111;
+    text-align:center;
+}
+.trust-grid{
+    display:grid;
+    gap:15px;
 }
 
-.service:hover {
-    background: var(--orange);
-    color: black;
+/* CTA STRIP */
+.cta{
+    background:var(--orange);
+    color:black;
+    text-align:center;
+    padding:50px 20px;
 }
-
-.service h3 {
-    margin-bottom: 10px;
-}
+.cta h2{margin-bottom:15px;}
 
 /* FORM */
-form {
-    display: flex;
-    flex-direction: column;
+form{
+    display:flex;
+    flex-direction:column;
 }
-
-form input, form textarea {
-    padding: 12px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: none;
+input,textarea{
+    padding:12px;
+    margin-bottom:10px;
+    border:none;
 }
-
-form button {
-    background: var(--orange);
-    padding: 12px;
-    border: none;
-    font-weight: bold;
+button{
+    padding:12px;
+    background:var(--orange);
+    border:none;
+    font-weight:bold;
 }
 
 /* FOOTER */
-footer {
-    background: black;
-    text-align: center;
-    padding: 30px 20px;
+footer{
+    background:black;
+    text-align:center;
+    padding:30px;
 }
-
-footer a {
-    color: var(--orange);
-    margin: 0 10px;
-}
+footer a{color:var(--orange);margin:0 10px;}
 
 /* DESKTOP */
 @media(min-width:768px){
-    .hero h1 { font-size: 3.5rem; }
-    .slides img { height: 400px; }
-    .services { grid-template-columns: repeat(3,1fr); }
+    .hero h1{font-size:4rem;}
+    .slide img{height:400px;}
+    .services{grid-template-columns:repeat(3,1fr);}
+    .trust-grid{grid-template-columns:repeat(4,1fr);}
 }
+
 </style>
 </head>
 
@@ -186,125 +206,136 @@ footer a {
 
 <!-- HERO -->
 <section class="hero">
-    <div>
-        <h1>Professional Groundworks & Excavation</h1>
+    <div class="hero-content">
+        <h1>Groundworks & Excavation Specialists</h1>
+        <div class="line"></div>
         <p>Reliable. Experienced. Built to last.</p>
         <a href="#contact" class="btn">Get a Quote</a>
+        <a href="tel:07787300827" class="btn secondary">Call Now</a>
     </div>
 </section>
 
-<!-- WORK SLIDER -->
+<!-- WORK -->
 <section id="work">
-    <h2>Our Work</h2>
+<h2>Our Work</h2>
 
-    <div class="slider">
-        <div class="slides" id="slides">
-            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e">
-            <img src="https://images.unsplash.com/photo-1581092334440-1d6d7f76e8df">
-            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd">
-        </div>
-    </div>
+<div class="slider">
+    <div class="slide active"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e"></div>
+    <div class="slide"><img src="https://images.unsplash.com/photo-1581092334440-1d6d7f76e8df"></div>
+    <div class="slide"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd"></div>
+</div>
 </section>
 
 <!-- SERVICES -->
 <section id="services">
-    <h2>What We Do</h2>
+<h2>What We Do</h2>
 
-    <div class="services">
-        <div class="service">
-            <h3>Groundworks</h3>
-            <p>Full groundwork preparation for residential and commercial builds, ensuring solid and reliable foundations.</p>
-        </div>
+<div class="services">
 
-        <div class="service">
-            <h3>Excavation</h3>
-            <p>Precision digging using modern machinery for footings, trenches, and site preparation.</p>
-        </div>
+<div class="service">
+<h3>Groundworks</h3>
+<p>Complete site preparation, ensuring solid foundations for all construction projects.</p>
+</div>
 
-        <div class="service">
-            <h3>Foundations</h3>
-            <p>Concrete foundations installed to exact specifications for long-term structural integrity.</p>
-        </div>
+<div class="service">
+<h3>Excavation</h3>
+<p>Precision digging for trenches, footings, and landscaping with modern machinery.</p>
+</div>
 
-        <div class="service">
-            <h3>Drainage Solutions</h3>
-            <p>Installation of effective drainage systems to prevent flooding and maintain site stability.</p>
-        </div>
+<div class="service">
+<h3>Foundations</h3>
+<p>Strong, reliable concrete foundations built to last and meet all requirements.</p>
+</div>
 
-        <div class="service">
-            <h3>Site Clearance</h3>
-            <p>Efficient removal of debris, soil, and obstacles to prepare land for development.</p>
-        </div>
+<div class="service">
+<h3>Drainage</h3>
+<p>Efficient drainage systems installed to protect properties and manage water flow.</p>
+</div>
 
-        <div class="service">
-            <h3>Digger Hire</h3>
-            <p>Professional digger services with experienced operators for all types of groundwork projects.</p>
-        </div>
-    </div>
+<div class="service">
+<h3>Site Clearance</h3>
+<p>Fast and safe removal of debris and obstacles, readying land for development.</p>
+</div>
+
+<div class="service">
+<h3>Digger Hire</h3>
+<p>Experienced operator with machinery available for projects of all sizes.</p>
+</div>
+
+</div>
 </section>
 
-<!-- ABOUT -->
-<section>
-    <h2>About Us</h2>
-    <p>
-        Dig It Up Groundworks provides reliable and professional excavation and groundwork services.
-        With years of hands-on experience, we deliver high-quality results for both domestic and commercial projects.
-        Our focus is on precision, efficiency, and getting the job done right the first time.
-    </p>
+<!-- TRUST -->
+<section class="trust">
+<div class="trust-grid">
+<div>✔ Fully Insured</div>
+<div>✔ Reliable & On Time</div>
+<div>✔ Experienced Operators</div>
+<div>✔ Domestic & Commercial</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+<h2>Need Groundwork Done Right?</h2>
+<a href="#contact" class="btn">Request a Quote</a>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-    <h2>Get a Quote</h2>
+<h2>Get a Quote</h2>
 
-    <form onsubmit="sendEmail(event)">
-        <input type="text" id="name" placeholder="Name" required>
-        <input type="email" id="email" placeholder="Email" required>
-        <input type="tel" id="phone" placeholder="Phone">
-        <textarea id="message" placeholder="Tell us about your job"></textarea>
-        <button type="submit">Request Quote</button>
-    </form>
+<form onsubmit="sendEmail(event)">
+<input type="text" id="name" placeholder="Name" required>
+<input type="email" id="email" placeholder="Email" required>
+<input type="tel" id="phone" placeholder="Phone">
+<textarea id="message" placeholder="Tell us about your job"></textarea>
+<button type="submit">Send Request</button>
+</form>
+
 </section>
 
 <!-- FOOTER -->
 <footer>
-    <p>07787300827</p>
-    <p>Hello@digitupgroundworks.com</p>
+<p>07787300827</p>
+<p>Hello@digitupgroundworks.com</p>
 
-    <div>
-        <a href="https://www.facebook.com/share/1bkVrC9YfD/" target="_blank">Facebook</a>
-        <a href="https://www.linkedin.com/in/wayne-chambers-721648169" target="_blank">LinkedIn</a>
-    </div>
+<div>
+<a href="https://www.facebook.com/share/1bkVrC9YfD/" target="_blank">Facebook</a>
+<a href="https://www.linkedin.com/in/wayne-chambers-721648169" target="_blank">LinkedIn</a>
+</div>
 </footer>
 
 <script>
-let index = 0;
-const slides = document.getElementById("slides");
-const totalSlides = slides.children.length;
 
-function autoSlide() {
-    index++;
-    if(index >= totalSlides) index = 0;
-    slides.style.transform = `translateX(-${index * 100}%)`;
+/* SLIDER */
+let slides=document.querySelectorAll(".slide");
+let current=0;
+
+function nextSlide(){
+    slides[current].classList.remove("active");
+    current=(current+1)%slides.length;
+    slides[current].classList.add("active");
 }
 
-setInterval(autoSlide, 3000);
+setInterval(nextSlide,4000);
 
 /* EMAIL */
-function sendEmail(e) {
+function sendEmail(e){
     e.preventDefault();
 
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-    let phone = document.getElementById("phone").value;
-    let message = document.getElementById("message").value;
+    let name=document.getElementById("name").value;
+    let email=document.getElementById("email").value;
+    let phone=document.getElementById("phone").value;
+    let message=document.getElementById("message").value;
 
-    window.location.href = `mailto:Hello@digitupgroundworks.com?subject=Quote Request&body=
+    window.location.href=`mailto:Hello@digitupgroundworks.com?subject=Quote Request&body=
     Name: ${name}%0D%0A
     Email: ${email}%0D%0A
     Phone: ${phone}%0D%0A
     Message: ${message}`;
 }
+
 </script>
 
 </body>
