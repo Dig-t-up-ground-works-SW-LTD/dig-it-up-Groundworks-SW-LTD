@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,76 +5,114 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dig It Up Groundworks</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
+:root {
+    --orange: #ff8c00;
+    --dark: #0d0d0d;
+    --light: #f5f5f5;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
 }
 
 body {
-    background: #111;
+    font-family: 'Inter', sans-serif;
+    background: var(--dark);
     color: white;
 }
 
-/* NAVBAR */
+/* NAV */
 nav {
     position: fixed;
     width: 100%;
-    top: 0;
-    background: rgba(0,0,0,0.8);
-    padding: 15px 50px;
+    padding: 15px 20px;
+    background: rgba(0,0,0,0.85);
     display: flex;
     justify-content: space-between;
     z-index: 1000;
 }
 
+nav h2 {
+    font-family: 'Oswald';
+    letter-spacing: 1px;
+}
+
 nav a {
     color: white;
+    margin-left: 15px;
     text-decoration: none;
-    margin-left: 20px;
+    font-size: 0.9rem;
 }
 
 /* HERO */
 .hero {
     height: 100vh;
-    background: url('https://images.unsplash.com/photo-1597002973522-8aefc7f5c6e5') center/cover no-repeat;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+    url('https://images.unsplash.com/photo-1597002973522-8aefc7f5c6e5') center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: 20px;
 }
 
-.hero-content h1 {
-    font-size: 3rem;
+.hero h1 {
+    font-size: 2.5rem;
+    font-family: 'Oswald';
 }
 
-.hero-content p {
+.hero p {
     margin: 15px 0;
-    font-size: 1.2rem;
+    color: #ccc;
 }
 
 .btn {
-    background: orange;
-    padding: 12px 25px;
+    background: var(--orange);
     color: black;
+    padding: 12px 25px;
     text-decoration: none;
     font-weight: bold;
     border-radius: 5px;
 }
 
-/* SECTION */
+/* SECTIONS */
 section {
-    padding: 80px 50px;
+    padding: 60px 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+h2 {
+    font-family: 'Oswald';
+    margin-bottom: 20px;
+}
+
+/* SLIDER */
+.slider {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slides img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
 }
 
 /* SERVICES */
 .services {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
 }
 
@@ -87,106 +124,136 @@ section {
 }
 
 .service:hover {
-    transform: translateY(-5px);
-    background: orange;
+    background: var(--orange);
     color: black;
 }
 
-/* SLIDER */
-.slider {
-    display: flex;
-    overflow-x: auto;
-    gap: 10px;
-}
-
-.slider img {
-    width: 300px;
-    border-radius: 10px;
+.service h3 {
+    margin-bottom: 10px;
 }
 
 /* FORM */
 form {
     display: flex;
     flex-direction: column;
-    max-width: 500px;
 }
 
 form input, form textarea {
+    padding: 12px;
     margin-bottom: 10px;
-    padding: 10px;
-    border: none;
     border-radius: 5px;
+    border: none;
 }
 
 form button {
-    background: orange;
-    border: none;
+    background: var(--orange);
     padding: 12px;
-    cursor: pointer;
+    border: none;
+    font-weight: bold;
 }
 
 /* FOOTER */
 footer {
     background: black;
-    padding: 40px;
     text-align: center;
+    padding: 30px 20px;
 }
 
 footer a {
-    color: orange;
+    color: var(--orange);
     margin: 0 10px;
 }
 
+/* DESKTOP */
+@media(min-width:768px){
+    .hero h1 { font-size: 3.5rem; }
+    .slides img { height: 400px; }
+    .services { grid-template-columns: repeat(3,1fr); }
+}
 </style>
 </head>
 
 <body>
 
 <nav>
-    <h2>Dig It Up</h2>
+    <h2>DIG IT UP</h2>
     <div>
-        <a href="#services">Services</a>
         <a href="#work">Work</a>
+        <a href="#services">Services</a>
         <a href="#contact">Quote</a>
     </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
-    <div class="hero-content">
-        <h1>Groundworks & Excavation Experts</h1>
-        <p>Dig It Deep. Pile It High.</p>
+    <div>
+        <h1>Professional Groundworks & Excavation</h1>
+        <p>Reliable. Experienced. Built to last.</p>
         <a href="#contact" class="btn">Get a Quote</a>
     </div>
 </section>
 
+<!-- WORK SLIDER -->
 <section id="work">
     <h2>Our Work</h2>
+
     <div class="slider">
-        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e">
-        <img src="https://images.unsplash.com/photo-1581092334440-1d6d7f76e8df">
-        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd">
+        <div class="slides" id="slides">
+            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e">
+            <img src="https://images.unsplash.com/photo-1581092334440-1d6d7f76e8df">
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd">
+        </div>
     </div>
 </section>
 
+<!-- SERVICES -->
 <section id="services">
-    <h2>Services</h2>
+    <h2>What We Do</h2>
+
     <div class="services">
-        <div class="service">Groundworks</div>
-        <div class="service">Excavation</div>
-        <div class="service">Foundations</div>
-        <div class="service">Drainage</div>
-        <div class="service">Site Clearance</div>
+        <div class="service">
+            <h3>Groundworks</h3>
+            <p>Full groundwork preparation for residential and commercial builds, ensuring solid and reliable foundations.</p>
+        </div>
+
+        <div class="service">
+            <h3>Excavation</h3>
+            <p>Precision digging using modern machinery for footings, trenches, and site preparation.</p>
+        </div>
+
+        <div class="service">
+            <h3>Foundations</h3>
+            <p>Concrete foundations installed to exact specifications for long-term structural integrity.</p>
+        </div>
+
+        <div class="service">
+            <h3>Drainage Solutions</h3>
+            <p>Installation of effective drainage systems to prevent flooding and maintain site stability.</p>
+        </div>
+
+        <div class="service">
+            <h3>Site Clearance</h3>
+            <p>Efficient removal of debris, soil, and obstacles to prepare land for development.</p>
+        </div>
+
+        <div class="service">
+            <h3>Digger Hire</h3>
+            <p>Professional digger services with experienced operators for all types of groundwork projects.</p>
+        </div>
     </div>
 </section>
 
+<!-- ABOUT -->
 <section>
     <h2>About Us</h2>
     <p>
-        We provide professional groundwork services with years of experience.
-        Reliable, efficient, and built on quality workmanship.
+        Dig It Up Groundworks provides reliable and professional excavation and groundwork services.
+        With years of hands-on experience, we deliver high-quality results for both domestic and commercial projects.
+        Our focus is on precision, efficiency, and getting the job done right the first time.
     </p>
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
     <h2>Get a Quote</h2>
 
@@ -194,16 +261,15 @@ footer a {
         <input type="text" id="name" placeholder="Name" required>
         <input type="email" id="email" placeholder="Email" required>
         <input type="tel" id="phone" placeholder="Phone">
-        <input type="text" id="service" placeholder="Service Needed">
-        <textarea id="message" placeholder="Message"></textarea>
-        <button type="submit">Send Quote Request</button>
+        <textarea id="message" placeholder="Tell us about your job"></textarea>
+        <button type="submit">Request Quote</button>
     </form>
-
 </section>
 
+<!-- FOOTER -->
 <footer>
-    <p>📞 07787300827</p>
-    <p>✉️ Hello@digitupgroundworks.com</p>
+    <p>07787300827</p>
+    <p>Hello@digitupgroundworks.com</p>
 
     <div>
         <a href="https://www.facebook.com/share/1bkVrC9YfD/" target="_blank">Facebook</a>
@@ -212,23 +278,32 @@ footer a {
 </footer>
 
 <script>
+let index = 0;
+const slides = document.getElementById("slides");
+const totalSlides = slides.children.length;
+
+function autoSlide() {
+    index++;
+    if(index >= totalSlides) index = 0;
+    slides.style.transform = `translateX(-${index * 100}%)`;
+}
+
+setInterval(autoSlide, 3000);
+
+/* EMAIL */
 function sendEmail(e) {
     e.preventDefault();
 
     let name = document.getElementById("name").value;
     let email = document.getElementById("email").value;
     let phone = document.getElementById("phone").value;
-    let service = document.getElementById("service").value;
     let message = document.getElementById("message").value;
 
-    let mailtoLink = `mailto:Hello@digitupgroundworks.com?subject=Quote Request&body=
+    window.location.href = `mailto:Hello@digitupgroundworks.com?subject=Quote Request&body=
     Name: ${name}%0D%0A
     Email: ${email}%0D%0A
     Phone: ${phone}%0D%0A
-    Service: ${service}%0D%0A
     Message: ${message}`;
-
-    window.location.href = mailtoLink;
 }
 </script>
 
