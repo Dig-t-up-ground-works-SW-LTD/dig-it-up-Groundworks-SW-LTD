@@ -172,6 +172,11 @@ nav {
   z-index:1000;
 }
 
+.nav-right {
+  display:flex;
+  align-items:center;
+}
+
 .nav-btn {
   background:#22c55e;
   color:#000;
@@ -194,9 +199,13 @@ nav {
 <body>
 
 <nav>
-  <img src="logo.png" class="logo">
+  <div class="nav-left">
+    <img src="logo.png" class="logo">
+  </div>
 
-  <a href="#quote" class="nav-btn">Get a Quote</a>
+  <div class="nav-right">
+    <a href="#quote" class="nav-btn">Get a Quote</a>
+  </div>
 </nav>
 
 <!-- HERO -->
