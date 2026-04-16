@@ -11,6 +11,7 @@ body {
   font-family: 'Segoe UI', sans-serif;
   background:#0f1720;
   color:#e5e7eb;
+  scroll-behavior:smooth;
 }
 
 /* NAV */
@@ -20,15 +21,12 @@ nav {
   padding:15px 8%;
   display:flex;
   justify-content:space-between;
-  align-items:center;
   background:rgba(15,23,32,0.85);
   backdrop-filter: blur(8px);
   z-index:1000;
 }
 
-.logo {
-  height:40px;
-}
+.logo { height:40px; }
 
 /* HERO */
 .hero {
@@ -52,7 +50,7 @@ nav {
   position:absolute;
   width:100%;
   height:100%;
-  background:linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.2));
+  background:linear-gradient(to right, rgba(0,0,0,0.75), rgba(0,0,0,0.2));
 }
 
 .hero-content {
@@ -66,14 +64,7 @@ nav {
   max-width:650px;
 }
 
-.hero h2 {
-  font-size:50px;
-}
-
-.hero p {
-  margin:15px 0;
-  color:#cbd5e1;
-}
+.hero h2 { font-size:50px; }
 
 /* BUTTON */
 .btn {
@@ -82,8 +73,12 @@ nav {
   padding:12px 26px;
   border:none;
   cursor:pointer;
-  font-weight:bold;
   border-radius:5px;
+  transition:0.3s;
+}
+
+.btn:hover {
+  background:#16a34a;
 }
 
 /* SECTIONS */
@@ -91,10 +86,19 @@ section {
   padding:90px 8%;
 }
 
-h2 {
-  margin-bottom:20px;
+/* ANIMATION */
+.fade-up {
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 0.8s ease;
 }
 
+.fade-up.active {
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* GRID */
 .grid {
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -106,17 +110,36 @@ h2 {
   padding:20px;
   border-radius:10px;
   border-left:4px solid #22c55e;
+  transition:0.3s;
 }
 
-/* QUOTE SECTION */
+.card:hover {
+  transform:translateY(-6px);
+}
+
+/* GALLERY */
+.gallery {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:15px;
+}
+
+.gallery img {
+  width:100%;
+  height:250px;
+  object-fit:cover;
+  border-radius:10px;
+  transition:0.4s;
+}
+
+.gallery img:hover {
+  transform:scale(1.05);
+}
+
+/* QUOTE */
 .quote-section {
   background:#111827;
   text-align:center;
-}
-
-.quote-box {
-  max-width:500px;
-  margin:auto;
 }
 
 input, textarea {
@@ -142,7 +165,6 @@ a { color:#22c55e; }
 <body>
 
 <nav>
-  <!-- REPLACE THIS WITH ACTUAL LOGO -->
   <img src="logo.png" class="logo">
 </nav>
 
@@ -154,45 +176,58 @@ a { color:#22c55e; }
 
   <div class="overlay"></div>
 
-  <div class="hero-content">
+  <div class="hero-content fade-up">
     <h2>Dig It Up Ground Works SW Ltd</h2>
-    <p>
-      Professional groundwork and labour supply specialists based in Essex, covering Suffolk and surrounding areas.
-      Delivering reliable, high-quality services for small to medium-sized construction projects.
-    </p>
+    <p>Based in Essex, covering Suffolk & surrounding areas.</p>
   </div>
 </div>
 
 <!-- ABOUT -->
-<section>
+<section class="fade-up">
 <h2>About Us</h2>
 <p>
-At Dig It Up Ground Works SW Ltd, we provide a complete range of groundwork services, from initial site preparation through to finished levels.
-With hands-on experience across residential and commercial projects, we pride ourselves on delivering efficient, reliable, and high-standard work.
+Dig It Up Ground Works SW Ltd is a trusted groundwork and labour supply company delivering reliable services across Essex, Suffolk and surrounding areas.
+</p>
+<br>
+<p>
+We specialise in all aspects of groundwork, from site clearance and excavation through to foundations, drainage, and external works. With a strong understanding of construction requirements and on-site efficiency, we ensure every project is completed safely, on time, and to a high standard.
+</p>
+<br>
+<p>
+Alongside our groundwork services, we also provide experienced labour to the construction industry. Whether you require a full gang or individual operatives, we supply skilled workers who are fully certified and ready to integrate into your project.
 </p>
 </section>
 
 <!-- SERVICES -->
-<section>
+<section class="fade-up">
 <h2>Groundwork Services</h2>
 <div class="grid">
 <div class="card">Footings & Foundations for Extensions</div>
-<div class="card">Drainage Systems & Septic Tank Installation</div>
-<div class="card">Driveways, Hard Landscaping & External Works</div>
-<div class="card">Site Clearance & Small Demolition</div>
-<div class="card">Tree Stump Removal & Ditching Works</div>
-<div class="card">Pond & Swimming Pool Dig Outs</div>
-<div class="card">Retaining Walls & Structural Groundworks</div>
-<div class="card">Roads, Tracks & Hardstanding Areas</div>
+<div class="card">Drainage Systems & Septic Tanks</div>
+<div class="card">Driveways & Hard Landscaping</div>
+<div class="card">Site Clearance & Demolition</div>
+<div class="card">Tree Stump Removal & Ditching</div>
+<div class="card">Pond & Pool Dig Outs</div>
+<div class="card">Retaining Walls</div>
+<div class="card">Roads, Tracks & Hardstanding</div>
+</div>
+</section>
+
+<!-- GALLERY -->
+<section class="fade-up">
+<h2>Recent Work</h2>
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e">
+<img src="https://images.unsplash.com/photo-1581091870627-3b1fcb7f3b3f">
+<img src="https://images.unsplash.com/photo-1597002974507-6c3b4b47a1b5">
 </div>
 </section>
 
 <!-- LABOUR -->
-<section>
+<section class="fade-up">
 <h2>Labour Supply</h2>
 <p>
-We supply experienced and fully qualified labour to construction and infrastructure projects, supporting contractors with reliable workforce solutions.
-All operatives are vetted and hold the relevant CSCS/CPCS certifications required for site work.
+We provide fully qualified, vetted labour to support construction and infrastructure projects. All operatives hold the necessary CSCS/CPCS certifications and are experienced in working efficiently within active site environments.
 </p>
 
 <div class="grid">
@@ -205,15 +240,13 @@ All operatives are vetted and hold the relevant CSCS/CPCS certifications require
 </section>
 
 <!-- QUOTE -->
-<section class="quote-section">
+<section class="quote-section fade-up">
 <h2>Request a Quote</h2>
-<div class="quote-box">
 <input type="text" placeholder="Full Name">
 <input type="email" placeholder="Email Address">
 <input type="text" placeholder="Phone Number">
 <textarea placeholder="Tell us about your project"></textarea>
 <button class="btn">Submit Request</button>
-</div>
 </section>
 
 <!-- FOOTER -->
@@ -223,18 +256,31 @@ All operatives are vetted and hold the relevant CSCS/CPCS certifications require
 <a href="https://www.facebook.com/share/1bkVrC9YfD/" target="_blank">Facebook</a> |
 <a href="https://www.linkedin.com/in/wayne-chambers-721648169" target="_blank">LinkedIn</a>
 </p>
-<p>Based in Essex | Covering Suffolk & surrounding areas</p>
+<p>Essex-based | Covering Suffolk & surrounding areas</p>
 </footer>
 
 <script>
+// SLIDESHOW
 let slides = document.querySelectorAll('.slide');
 let i = 0;
-
 setInterval(() => {
   slides[i].classList.remove('active');
   i = (i + 1) % slides.length;
   slides[i].classList.add('active');
 }, 4000);
+
+// SCROLL ANIMATION
+const elements = document.querySelectorAll('.fade-up');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+    }
+  });
+});
+
+elements.forEach(el => observer.observe(el));
 </script>
 
 </body>
