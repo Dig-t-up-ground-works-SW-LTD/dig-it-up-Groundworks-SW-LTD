@@ -20,19 +20,17 @@ body {
   scroll-behavior:smooth;
 }
 
-/* =========================
-   PREMIUM DARK-MODE SAFE HEADER
-========================= */
+
 
 nav {
   position: fixed;
   top: 0;
   width: 100%;
 
-  background: transparent; /* NO HEADER */
+  background: transparent; 
 
   z-index: 1000;
-  pointer-events: none; /* allows clicks through except children */
+  pointer-events: none; 
 }
 
 .nav-inner {
@@ -50,7 +48,7 @@ nav {
 
 
 .logo {
-  height: 75px;
+  height: 150px;
 
   filter:
     drop-shadow(0 2px 6px rgba(0,0,0,0.8))
@@ -98,7 +96,10 @@ nav {
 
 
 .hero {
-  margin-top: 0;
+  height: 100vh;
+  position: relative;
+
+  padding-top: 100px; 
 }
 
 .slide {
