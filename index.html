@@ -16,14 +16,25 @@ body {
 
 /* NAV */
 nav {
-  position:fixed;
-  width:100%;
-  padding:15px 8%;
-  display:flex;
-  justify-content:space-between;
-  background:rgba(15,23,32,0.85);
+  position: fixed;
+  width: 100%;
+  padding: 15px 20px; /* reduced side padding */
+  display: flex;
+  justify-content: center; /* center the inner container */
+  background: rgba(15,23,32,0.85);
   backdrop-filter: blur(8px);
-  z-index:1000;
+  z-index: 1000;
+}
+
+
+
+
+  .nav-inner {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo { height:70px; }
@@ -291,17 +302,17 @@ nav {
 </head>
 
 <body>
-
 <nav>
-  <div class="nav-left">
-    <img src="logo.png" class="logo">
-  </div>
+  <div class="nav-inner">
+    <div class="nav-left">
+      <img src="logo.png" class="logo">
+    </div>
 
-  <div class="nav-right">
-    <a href="#quote" class="nav-btn">Get a Quote</a>
+    <div class="nav-right">
+      <a href="#quote" class="nav-btn">Get a Quote</a>
+    </div>
   </div>
 </nav>
-
 <!-- HERO -->
 <div class="hero">
   <div class="slide active" style="background-image:url('image2.png')"></div>
