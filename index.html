@@ -20,53 +20,84 @@ body {
   scroll-behavior:smooth;
 }
 
+/* =========================
+   PREMIUM DARK-MODE SAFE HEADER
+========================= */
+
 nav {
   position: fixed;
   top: 0;
   width: 100%;
 
-  background: rgba(255, 255, 255, 0.2); /* TRANSPARENT */
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  /* Solid but soft dark (works with forced dark mode) */
+  background: linear-gradient(180deg, #111827 0%, #1f2937 100%);
 
-  border-bottom: 1px solid rgba(255,255,255,0.3);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 
   z-index: 1000;
 }
+
+/* inner layout stays same */
 .nav-inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 10px 20px;
+  padding: 12px 20px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+/* LOGO - made to stand out ALWAYS */
 .logo {
-  height: 120px;
+  height: 75px;
 
-  filter: 
-    drop-shadow(0 0 6px rgba(255,255,255,0.8))
-    drop-shadow(0 0 2px rgba(0,0,0,0.6));
-}}
-
-.nav-right {
-  display:flex;
-  align-items:center;
+  filter:
+    drop-shadow(0 0 6px rgba(255,255,255,0.15))
+    drop-shadow(0 2px 6px rgba(0,0,0,0.6));
 }
- .nav-btn {
-  background: #f97316;
+
+/* BUTTON - DARK MODE SAFE */
+.nav-btn {
+  background: linear-gradient(135deg, #f97316, #ea580c);
   color: #fff;
+
   padding: 10px 20px;
-  border-radius: 6px;
+  border-radius: 8px;
   text-decoration: none;
   font-weight: 600;
-  transition: 0.3s;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+
+  transition: all 0.25s ease;
 }
 
 .nav-btn:hover {
-  background: linear-gradient(135deg,#ea580c,#f97316);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
 }
+
+/* =========================
+   MOBILE OPTIMISATION
+========================= */
+
+@media (max-width: 768px) {
+
+  .logo {
+    height: 55px;
+  }
+
+  .nav-btn {
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+
+  .nav-inner {
+    padding: 10px 15px;
+  }
+}
+
+
 
 /* HERO */
 .hero {
