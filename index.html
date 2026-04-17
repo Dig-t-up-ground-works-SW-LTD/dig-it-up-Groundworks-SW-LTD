@@ -345,6 +345,39 @@ a { color:#f97316; }
 }
   
 
+.simple-slider {
+  position: relative;
+  max-width: 700px;
+  margin: 30px auto;
+}
+
+.simple-slider img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  border: none;
+  font-size: 24px;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.slider-btn.prev { left: 10px; }
+.slider-btn.next { right: 10px; }
+
+.slider-btn:hover {
+  background: #f97316;
+}
+  
   
 </style>
 </head>
@@ -471,6 +504,17 @@ We provide fully qualified, vetted labour to support construction and infrastruc
 <div class="card">Dumper Drivers</div>
 <div class="card">General Labourers</div>
 </div>
+
+<h3 style="margin-top:40px;">Recent Projects</h3>
+
+<div class="simple-slider">
+  <button class="slider-btn prev">&#10094;</button>
+
+  <img id="sliderImage" src="workimage1.png" alt="Project image">
+
+  <button class="slider-btn next">&#10095;</button>
+</div>
+  
 </section>
 
 <!-- QUOTE -->
@@ -576,6 +620,60 @@ if (slider && overlay) {
   });
 
 }
+
+
+// SIMPLE IMAGE SLIDER
+const images = [
+  "pic1.png",
+  "pic2.png",
+  "pic3.png",
+  "pic4.png",
+  "pic5.png"
+  "pic6.png",
+  "pic7.png",
+  "pic8.png",
+  "pic9.png",
+  "pic10.png"
+  "pic11.png",
+  "pic12.png",
+  "pic13.png",
+  "pic14.png",
+  "pic15.png"
+  "pic16.png",
+  "pic17.png",
+  "pic18.png",
+  "pic19.png",
+  "pic20.png"
+  
+
+
+  
+];
+
+let current = 0;
+
+const sliderImage = document.getElementById("sliderImage");
+const prevBtn = document.querySelector(".prev");
+const nextBtn = document.querySelector(".next");
+
+if (sliderImage) {
+
+  function showImage(index) {
+    sliderImage.src = images[index];
+  }
+
+  nextBtn.addEventListener("click", () => {
+    current = (current + 1) % images.length;
+    showImage(current);
+  });
+
+  prevBtn.addEventListener("click", () => {
+    current = (current - 1 + images.length) % images.length;
+    showImage(current);
+  });
+
+}
+  
 </script>
 </body>
 </html>
