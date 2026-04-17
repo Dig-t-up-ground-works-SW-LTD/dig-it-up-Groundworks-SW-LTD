@@ -24,28 +24,44 @@ body {
 }
 
 /* NAV */
+
+/* NAV FIXED CLEAN */
 nav {
   position: fixed;
+  top: 0;
   width: 100%;
-  padding: 15px 20px;
-  display: flex;
-  justify-content: center;
-  background: #e5e7eb !important;
+  background: #ffffff;
   z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-
-
-
-  .nav-inner {
+.nav-inner {
   max-width: 1200px;
-  width: 100%;
+  margin: 0 auto;
+  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.logo { height:110px; }
+.logo {
+  height: 70px;
+}
+
+/* BUTTON FIX */
+.nav-btn {
+  background: #f59e0b;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.nav-btn:hover {
+  background: #d97706;
+}
 
 /* HERO */
 .hero {
@@ -329,7 +345,9 @@ a { color:#f59e0b; }
   display: block;
   margin: 20px auto 0;
 }
-  
+.hero {
+  margin-top: 90px;
+}  
 
 </style>
 </head>
@@ -364,6 +382,7 @@ a { color:#f59e0b; }
     <p>Based in Essex, covering Suffolk & surrounding areas.</p>
   </div>
 </div>
+
 
 <!-- ABOUT -->
 <section class="fade-up">
