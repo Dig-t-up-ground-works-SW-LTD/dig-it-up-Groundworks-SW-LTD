@@ -170,8 +170,6 @@ footer {
 }
 
 a { color:#f59e0b; }
-z-index:1000;
-  }
 
 .nav-right {
   display:flex;
@@ -302,9 +300,7 @@ z-index:1000;
 
 
 .quote-section {
-  max-width: 600px;
-  margin: auto;
-  padding: 90px 20px;
+  padding: 60px 20px;
 }
 
 
@@ -312,6 +308,18 @@ z-index:1000;
   display: block;
   margin: 20px auto 0;
 }
+
+
+.quote-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.quote-form .btn {
+  display: block;
+  margin: 20px auto 0;
+}
+  
 
 
 </style>
@@ -417,12 +425,15 @@ We provide fully qualified, vetted labour to support construction and infrastruc
 
 <!-- QUOTE -->
 <section id="quote" class="quote-section fade-up">
-<h2>Request a Quote</h2>
-<input type="text" placeholder="Full Name">
-<input type="email" placeholder="Email Address">
-<input type="text" placeholder="Phone Number">
-<textarea placeholder="Tell us about your project"></textarea>
-<button class="btn">Submit Request</button>
+  <h2>Request a Quote</h2>
+
+  <div class="quote-form">
+    <input type="text" placeholder="Full Name">
+    <input type="email" placeholder="Email Address">
+    <input type="text" placeholder="Phone Number">
+    <textarea placeholder="Tell us about your project"></textarea>
+    <button class="btn">Submit Request</button>
+  </div>
 </section>
 
 <!-- FOOTER -->
