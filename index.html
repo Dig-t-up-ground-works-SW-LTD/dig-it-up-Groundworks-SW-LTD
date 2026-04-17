@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="color-scheme" content="light only">
+<meta name="theme-color" content="#e5e7eb">
 <title>Dig It Up Ground Works SW Ltd</title>
 
 <style>
@@ -19,12 +20,11 @@ body {
   scroll-behavior:smooth;
 }
 
-/* NAV */
 nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background: #d1d5db;
+  background-color: #e5e7eb !important; /* FORCE LIGHT GREY */
   z-index: 1000;
   box-shadow: 0 2px 10px rgba(0,0,0,0.08);
 }
@@ -263,6 +263,14 @@ a { color:#f97316; }
   .gallery img { height:250px; }
 }
 
+
+@media (prefers-color-scheme: dark) {
+  nav {
+    background-color: #e5e7eb !important;
+  }
+}
+
+  
 </style>
 </head>
 
