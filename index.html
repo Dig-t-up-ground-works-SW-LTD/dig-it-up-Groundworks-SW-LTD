@@ -219,6 +219,8 @@ nav {
 
 .ba-img {
   width: 100%;
+  height: 500px;
+  object-fit: cover;
   display: block;
 }
 
@@ -226,8 +228,17 @@ nav {
   position: absolute;
   top: 0;
   left: 0;
+  height: 100%;
   width: 50%;
   overflow: hidden;
+}
+
+
+
+  .ba-overlay img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .ba-slider {
@@ -241,6 +252,39 @@ nav {
 }
 
 
+
+  .ba-container,
+.ba-container img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+
+  .ba-slider {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 4px;
+  height: 100%;
+  background: #22c55e;
+  cursor: ew-resize;
+  z-index: 5;
+}
+
+
+
+
+  .ba-slider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background: #22c55e;
+  border-radius: 50%;
+}
   
   
 </style>
