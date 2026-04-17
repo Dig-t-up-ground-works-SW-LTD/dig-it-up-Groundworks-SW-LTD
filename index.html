@@ -24,15 +24,10 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background: #e5e7eb !important;
-  background-color: #e5e7eb !important;
-  opacity: 1 !important;
-  z-index: 9999;
-
-  /* FORCE SOLID RENDER */
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-  will-change: transform;
+  background: rgba(229, 231, 235, 0.95); 
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 1000;
 }
 
 .nav-inner {
