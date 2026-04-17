@@ -18,11 +18,18 @@ body {
 nav {
   position: fixed;
   width: 100%;
-  padding: 15px 20px; /* reduced side padding */
+  padding: 15px 20px;
   display: flex;
-  justify-content: center; /* center the inner container */
-  background: rgba(15,23,32,0.85);
-  backdrop-filter: blur(8px);
+  justify-content: center;
+
+  background: linear-gradient(
+    to right,
+    rgba(10, 20, 35, 0.95),
+    rgba(15, 30, 50, 0.9)
+  );
+
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
   z-index: 1000;
 }
 
