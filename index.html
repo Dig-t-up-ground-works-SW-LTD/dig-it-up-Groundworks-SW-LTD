@@ -365,16 +365,24 @@ We provide fully qualified, vetted labour to support construction and infrastruc
 </footer>
 
 <script>
+// =====================
 // SLIDESHOW
+// =====================
 let slides = document.querySelectorAll('.slide');
 let i = 0;
-setInterval(() => {
-  slides[i].classList.remove('active');
-  i = (i + 1) % slides.length;
-  slides[i].classList.add('active');
-}, 4000);
 
+if (slides.length > 0) {
+  setInterval(() => {
+    slides[i].classList.remove('active');
+    i = (i + 1) % slides.length;
+    slides[i].classList.add('active');
+  }, 4000);
+}
+
+
+// =====================
 // SCROLL ANIMATION
+// =====================
 const elements = document.querySelectorAll('.fade-up');
 
 const observer = new IntersectionObserver(entries => {
@@ -388,48 +396,50 @@ const observer = new IntersectionObserver(entries => {
 elements.forEach(el => observer.observe(el));
 
 
-<script>
+// =====================
+// BEFORE / AFTER SLIDER
+// =====================
 const slider = document.getElementById("baSlider");
 const overlay = document.getElementById("baOverlay");
 
-let isDragging = false;
+if (slider && overlay) {
 
-slider.addEventListener("mousedown", () => isDragging = true);
-window.addEventListener("mouseup", () => isDragging = false);
+  let isDragging = false;
 
-window.addEventListener("mousemove", (e) => {
-  if (!isDragging) return;
+  slider.addEventListener("mousedown", () => isDragging = true);
+  window.addEventListener("mouseup", () => isDragging = false);
 
-  let rect = slider.parentElement.getBoundingClientRect();
-  let x = e.clientX - rect.left;
+  window.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
 
-  if (x < 0) x = 0;
-  if (x > rect.width) x = rect.width;
+    let rect = slider.parentElement.getBoundingClientRect();
+    let x = e.clientX - rect.left;
 
-  slider.style.left = x + "px";
-  overlay.style.width = x + "px";
-});
+    if (x < 0) x = 0;
+    if (x > rect.width) x = rect.width;
 
-/* MOBILE SUPPORT */
-slider.addEventListener("touchstart", () => isDragging = true);
-window.addEventListener("touchend", () => isDragging = false);
+    slider.style.left = x + "px";
+    overlay.style.width = x + "px";
+  });
 
-window.addEventListener("touchmove", (e) => {
-  if (!isDragging) return;
+  // MOBILE
+  slider.addEventListener("touchstart", () => isDragging = true);
+  window.addEventListener("touchend", () => isDragging = false);
 
-  let rect = slider.parentElement.getBoundingClientRect();
-  let x = e.touches[0].clientX - rect.left;
+  window.addEventListener("touchmove", (e) => {
+    if (!isDragging) return;
 
-  if (x < 0) x = 0;
-  if (x > rect.width) x = rect.width;
+    let rect = slider.parentElement.getBoundingClientRect();
+    let x = e.touches[0].clientX - rect.left;
 
-  slider.style.left = x + "px";
-  overlay.style.width = x + "px";
-});
+    if (x < 0) x = 0;
+    if (x > rect.width) x = rect.width;
+
+    slider.style.left = x + "px";
+    overlay.style.width = x + "px";
+  });
+
+}
 </script>
-
-  
-</script>
-
 </body>
 </html>
