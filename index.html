@@ -2,19 +2,15 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="color-scheme" content="light only">
 <title>Dig It Up Ground Works SW Ltd</title>
 
 <style>
 
-html {
-  color-scheme: light;
-}
-  :root {
-  color-scheme: light;
-}
-  
+html { color-scheme: light; }
+:root { color-scheme: light; }
+
 body {
   margin:0;
   font-family: 'Segoe UI', sans-serif;
@@ -24,15 +20,13 @@ body {
 }
 
 /* NAV */
-
-/* NAV FIXED CLEAN */
 nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background: #ffffff;
+  background: #f3f4f6; /* LIGHT GREY */
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
 }
 
 .nav-inner {
@@ -44,14 +38,17 @@ nav {
   align-items: center;
 }
 
-.logo {
-  height: 70px;
+.logo { height: 65px; }
+
+.nav-right {
+  display:flex;
+  align-items:center;
 }
 
-/* BUTTON FIX */
+/* ORANGE BUTTON */
 .nav-btn {
-  background: #f59e0b;
-  color: #ffffff;
+  background: linear-gradient(135deg,#f97316,#fb923c);
+  color: #fff;
   padding: 10px 20px;
   border-radius: 6px;
   text-decoration: none;
@@ -60,13 +57,14 @@ nav {
 }
 
 .nav-btn:hover {
-  background: #d97706;
+  background: linear-gradient(135deg,#ea580c,#f97316);
 }
 
 /* HERO */
 .hero {
   height:100vh;
   position:relative;
+  margin-top:80px;
 }
 
 .slide {
@@ -103,7 +101,7 @@ nav {
 
 /* BUTTON */
 .btn {
-  background:#f59e0b;
+  background:#f97316;
   color:#000;
   padding:12px 26px;
   border:none;
@@ -112,14 +110,10 @@ nav {
   transition:0.3s;
 }
 
-.btn:hover {
-  background:#d97706;
-}
+.btn:hover { background:#ea580c; }
 
 /* SECTIONS */
-section {
-  padding:90px 8%;
-}
+section { padding:90px 8%; }
 
 /* ANIMATION */
 .fade-up {
@@ -144,13 +138,11 @@ section {
   background:#1e293b;
   padding:20px;
   border-radius:10px;
-  border-left:4px solid #f59e0b;
+  border-left:4px solid #f97316;
   transition:0.3s;
 }
 
-.card:hover {
-  transform:translateY(-6px);
-}
+.card:hover { transform:translateY(-6px); }
 
 /* GALLERY */
 .gallery {
@@ -161,15 +153,13 @@ section {
 
 .gallery img {
   width:100%;
-  height:550px;
+  height:450px;
   object-fit:cover;
   border-radius:10px;
   transition:0.4s;
 }
 
-.gallery img:hover {
-  transform:scale(1.05);
-}
+.gallery img:hover { transform:scale(1.05); }
 
 /* QUOTE */
 .quote-section {
@@ -184,6 +174,7 @@ input, textarea {
   background:#1e293b;
   border:none;
   color:#fff;
+  border-radius:6px;
 }
 
 /* FOOTER */
@@ -193,43 +184,9 @@ footer {
   padding:40px;
 }
 
-a { color:#f59e0b; }
+a { color:#f97316; }
 
-.nav-right {
-  display:flex;
-  align-items:center;
-}
-
-.nav-btn {
-  background: #f59e0b;
-  color: #fff; 
-  padding: 10px 18px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-
-
-  @media (max-width: 768px) {
-  .slide {
-    background-position: center top;
-    background-size: cover;
-}
-
-  .hero-content h2 {
-    font-size: 32px;
-  }
-
-  .hero-content {
-    max-width: 90%;
-  }
-}
-
-
-
-
+/* BEFORE AFTER */
 .ba-container {
   position: relative;
   width: 100%;
@@ -241,9 +198,8 @@ a { color:#f59e0b; }
 
 .ba-img {
   width: 100%;
-  height: 500px;
+  height: 400px;
   object-fit: cover;
-  display: block;
 }
 
 .ba-overlay {
@@ -255,48 +211,18 @@ a { color:#f59e0b; }
   overflow: hidden;
 }
 
-
-
-  .ba-overlay img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 .ba-slider {
   position: absolute;
   top: 0;
   left: 50%;
   width: 4px;
   height: 100%;
-  background: #f59e0b;
-  cursor: ew-resize;
-}
-
-
-
-  .ba-container,
-.ba-container img {
-  user-select: none;
-  -webkit-user-drag: none;
-}
-
-
-  .ba-slider {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 4px;
-  height: 100%;
-  background: #f59e0b;
+  background: #f97316;
   cursor: ew-resize;
   z-index: 5;
 }
 
-
-
-
-  .ba-slider::after {
+.ba-slider::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -304,55 +230,44 @@ a { color:#f59e0b; }
   transform: translate(-50%, -50%);
   width: 20px;
   height: 20px;
-  background: #f59e0b;
+  background: #f97316;
   border-radius: 50%;
 }
 
-
-
-  
-
+/* MOBILE */
 @media (max-width: 768px) {
-  .nav-inner {
-    padding: 0 15px;
+
+  .hero { height: 85vh; }
+
+  .hero-content h2 { font-size: 28px; }
+
+  .hero-content { max-width: 95%; }
+
+  .gallery img { height:300px; }
+
+  section { padding:60px 20px; }
+
+  .logo { height: 55px; }
+}
+
+/* SMALL PHONES (Z FLIP ETC) */
+@media (max-width: 400px) {
+
+  .hero h2 { font-size: 24px; }
+
+  .nav-btn {
+    padding:8px 14px;
+    font-size:14px;
   }
 
-.quote-section {
-  padding: 60px 20px;
+  .gallery img { height:250px; }
 }
-
-    
-
-
-
-.quote-section {
-  padding: 60px 20px;
-}
-
-
-  .quote-section .btn {
-  display: block;
-  margin: 20px auto 0;
-}
-
-
-.quote-form {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.quote-form .btn {
-  display: block;
-  margin: 20px auto 0;
-}
-.hero {
-  margin-top: 90px;
-}  
 
 </style>
 </head>
 
 <body>
+
 <nav>
   <div class="nav-inner">
     <div class="nav-left">
@@ -364,16 +279,16 @@ a { color:#f59e0b; }
     </div>
   </div>
 </nav>
+
 <!-- HERO -->
 <div class="hero">
   <div class="slide active" style="background-image:url('workimage5.png')"></div>
   <div class="slide" style="background-image:url('image1.png')"></div>
   <div class="slide" style="background-image:url('workimage9.png')"></div>
-   <div class="slide" style="background-image:url('image2.png')"></div>
-   <div class="slide" style="background-image:url('workimage6.png')"></div>
-   <div class="slide" style="background-image:url('workimage7.png')"></div>
-   <div class="slide" style="background-image:url('workimage8.png')"></div>
-  
+  <div class="slide" style="background-image:url('image2.png')"></div>
+  <div class="slide" style="background-image:url('workimage6.png')"></div>
+  <div class="slide" style="background-image:url('workimage7.png')"></div>
+  <div class="slide" style="background-image:url('workimage8.png')"></div>
 
   <div class="overlay"></div>
 
@@ -382,6 +297,10 @@ a { color:#f59e0b; }
     <p>Based in Essex, covering Suffolk & surrounding areas.</p>
   </div>
 </div>
+
+<!-- KEEPING EVERYTHING ELSE EXACTLY THE SAME -->
+<!-- (Your original sections + script remain unchanged below) -->
+
 
 
 <!-- ABOUT -->
