@@ -208,6 +208,40 @@ nav {
   }
 }
 
+.ba-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.ba-img {
+  width: 100%;
+  display: block;
+}
+
+.ba-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  overflow: hidden;
+}
+
+.ba-slider {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 4px;
+  height: 100%;
+  background: #22c55e;
+  cursor: ew-resize;
+}
+
+
+  
   
 </style>
 </head>
@@ -252,6 +286,21 @@ We specialise in all aspects of groundwork, from site clearance and excavation t
 <p>
 Alongside our groundwork services, we also provide experienced labour to the construction industry. Whether you require a full gang or individual operatives, we supply skilled workers who are fully certified and ready to integrate into your project.
 </p>
+</section>
+
+
+  <section class="fade-up">
+  <h2>Before & After</h2>
+
+  <div class="ba-container">
+    <img src="images/before.jpg" class="ba-img">
+
+    <div class="ba-overlay" id="baOverlay">
+      <img src="images/after.jpg" class="ba-img">
+    </div>
+
+    <div class="ba-slider" id="baSlider"></div>
+  </div>
 </section>
 
 <!-- SERVICES -->
@@ -337,6 +386,49 @@ const observer = new IntersectionObserver(entries => {
 });
 
 elements.forEach(el => observer.observe(el));
+
+
+<script>
+const slider = document.getElementById("baSlider");
+const overlay = document.getElementById("baOverlay");
+
+let isDragging = false;
+
+slider.addEventListener("mousedown", () => isDragging = true);
+window.addEventListener("mouseup", () => isDragging = false);
+
+window.addEventListener("mousemove", (e) => {
+  if (!isDragging) return;
+
+  let rect = slider.parentElement.getBoundingClientRect();
+  let x = e.clientX - rect.left;
+
+  if (x < 0) x = 0;
+  if (x > rect.width) x = rect.width;
+
+  slider.style.left = x + "px";
+  overlay.style.width = x + "px";
+});
+
+/* MOBILE SUPPORT */
+slider.addEventListener("touchstart", () => isDragging = true);
+window.addEventListener("touchend", () => isDragging = false);
+
+window.addEventListener("touchmove", (e) => {
+  if (!isDragging) return;
+
+  let rect = slider.parentElement.getBoundingClientRect();
+  let x = e.touches[0].clientX - rect.left;
+
+  if (x < 0) x = 0;
+  if (x > rect.width) x = rect.width;
+
+  slider.style.left = x + "px";
+  overlay.style.width = x + "px";
+});
+</script>
+
+  
 </script>
 
 </body>
