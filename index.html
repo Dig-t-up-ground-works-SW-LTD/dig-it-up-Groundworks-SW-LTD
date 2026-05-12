@@ -511,55 +511,33 @@ We provide fully qualified, vetted labour to support construction and infrastruc
   <button class="slider-btn prev">&#10094;</button>
 
   <img id="sliderImage" src="workimage1.png" alt="Project image">
-
   <button class="slider-btn next">&#10095;</button>
 </div>
   
 </section>
-
+<!-- QUOTE -->
 <section id="quote" class="quote-section fade-up">
   <h2>Request a Quote</h2>
 
-  <form
-    action="mailto:Hello@digitupgroundworks.com"
-    method="POST"
-    enctype="text/plain"
-    class="quote-form"
-  >
+  <div class="quote-form">
 
-    <input
-      type="text"
-      name="Full Name"
-      placeholder="Full Name"
-      required
-    >
+    <input type="text" id="fullName" placeholder="Full Name">
 
-    <input
-      type="email"
-      name="Email"
-      placeholder="Email Address"
-      required
-    >
+    <input type="email" id="email" placeholder="Email Address">
 
-    <input
-      type="tel"
-      name="Phone"
-      placeholder="Phone Number"
-      required
-    >
+    <input type="text" id="phone" placeholder="Phone Number">
 
     <textarea
-      name="Project Details"
+      id="project"
       placeholder="Tell us about your project"
       rows="6"
-      required
     ></textarea>
 
-    <button type="submit" class="btn">
-      Get a Quote
+    <button class="btn" onclick="sendQuoteRequest()">
+      Send Request
     </button>
 
-  </form>
+  </div>
 </section>
 
 <!-- FOOTER -->
@@ -712,6 +690,30 @@ const images = [
   });
 
 });
+function sendQuoteRequest() {
+
+  const name = document.getElementById("fullName").value;
+  const email = document.getElementById("email").value;
+  const phone = document.getElementById("phone").value;
+  const project = document.getElementById("project").value;
+
+  const subject = encodeURIComponent("Quote Request - Dig It Up Ground Works");
+
+  const body = encodeURIComponent(
+`Full Name: ${name}
+
+Email: ${email}
+
+Phone: ${phone}
+
+Project Details:
+${project}`
+  );
+
+  window.location.href =
+    `mailto:Hello@digitupgroundworks.com?subject=${subject}&body=${body}`;
+}
+
 
   
 </script>
