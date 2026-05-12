@@ -517,17 +517,49 @@ We provide fully qualified, vetted labour to support construction and infrastruc
   
 </section>
 
-<!-- QUOTE -->
 <section id="quote" class="quote-section fade-up">
   <h2>Request a Quote</h2>
 
-  <div class="quote-form">
-    <input type="text" placeholder="Full Name">
-    <input type="email" placeholder="Email Address">
-    <input type="text" placeholder="Phone Number">
-    <textarea placeholder="Tell us about your project"></textarea>
-    <button class="btn">Submit Request</button>
-  </div>
+  <form
+    action="mailto:Hello@digitupgroundworks.com"
+    method="POST"
+    enctype="text/plain"
+    class="quote-form"
+  >
+
+    <input
+      type="text"
+      name="Full Name"
+      placeholder="Full Name"
+      required
+    >
+
+    <input
+      type="email"
+      name="Email"
+      placeholder="Email Address"
+      required
+    >
+
+    <input
+      type="tel"
+      name="Phone"
+      placeholder="Phone Number"
+      required
+    >
+
+    <textarea
+      name="Project Details"
+      placeholder="Tell us about your project"
+      rows="6"
+      required
+    ></textarea>
+
+    <button type="submit" class="btn">
+      Get a Quote
+    </button>
+
+  </form>
 </section>
 
 <!-- FOOTER -->
